@@ -55,6 +55,35 @@ Repository = "https://github.com/LucasAlegre/morl-baselines"
 Documentation = "https://lucasalegre.github.io/morl-baselines/"
 "Bug Report" = "https://github.com/LucasAlegre/morl-baselines/issues"
 
+[tool.poetry]
+name = "morl-baseline"
+version = "0"
+description = "morl"
+authors = [
+  "Namhoon Cho <namhoon.cho@qraftec.com>",
+  "Seungeon Baek <seungeon.baek@qraftec.com>",
+  "Joonhun Lee <joonhun.lee@qraftec.com>",
+  "Seyeon Kim <seyeon.kim@qraftec.com>",
+]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "~3.11"
+mo-gymnasium = "^1.1.0"
+gymnasium = "^0.29.1"
+numpy = "^1.26.4"
+torch = "^2.2.1"
+pygame = "^2.5.2"
+scipy = "^1.12.0"
+pymoo = "^0.6.1.1"
+wandb = "^0.16.5"
+imageio = "^2.34.0"
+moviepy = "^1.0.3"
+seaborn = "^0.13.2"
+cvxpy = "^1.4.2"
+fire = "^0.6.0"
+morl-baselines = {git = "https://github.com/LucasAlegre/morl-baselines.git"}
+
 [tool.setuptools]
 include-package-data = true
 
