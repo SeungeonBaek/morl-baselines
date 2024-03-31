@@ -82,7 +82,8 @@ moviepy = "^1.0.3"
 seaborn = "^0.13.2"
 cvxpy = "^1.4.2"
 fire = "^0.6.0"
-morl-baselines = {git = "https://github.com/LucasAlegre/morl-baselines.git"}
+# morl-baselines = {git = "https://github.com/LucasAlegre/morl-baselines.git"}
+morl-baselines = {path = "https://github.com/SeungeonBaek/morl-baselines.git", branch = "tmp_test"}
 
 [tool.setuptools]
 include-package-data = true

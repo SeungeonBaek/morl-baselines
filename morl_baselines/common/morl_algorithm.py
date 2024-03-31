@@ -40,6 +40,7 @@ class MOPolicy(ABC):
         self.id = id
         self.device = th.device("cuda" if th.cuda.is_available() else "cpu") if device == "auto" else device
         self.global_step = 0
+        print(f"initializing policy with id {self.id} and device {self.device}")
 
     @abstractmethod
     def eval(self, obs: np.ndarray, w: Optional[np.ndarray]) -> Union[int, np.ndarray]:
@@ -197,6 +198,8 @@ class MOAgent(ABC):
         self.num_episodes = 0
         self.seed = seed
         self.np_random = np.random.default_rng(self.seed)
+        
+        print(f"initializing agent with seed {self.seed} and device {self.device}")
 
     def extract_env_info(self, env: Optional[gym.Env]) -> None:
         """Extracts all the features of the environment: observation space, action space, ...

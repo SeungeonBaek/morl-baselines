@@ -197,6 +197,8 @@ class Envelope(MOPolicy, MOAgent):
                 action_dtype=np.uint8,
             )
 
+        print(f"envelope init from {__file__}")
+        
         self.log = log
         if log:
             self.setup_wandb(project_name, experiment_name, wandb_entity, group)
@@ -311,6 +313,9 @@ class Envelope(MOPolicy, MOAgent):
                 b_actions.long().reshape(-1, 1, 1).expand(q_values.size(0), 1, q_values.size(2)),
             )
             q_value = q_value.reshape(-1, self.reward_dim)
+            
+            print(f"q_value: {q_value.shape}\n{q_value}")
+            print(f"target_q: {target_q.shape}\n{target_q}")
 
             critic_loss = F.mse_loss(q_value, target_q)
 
@@ -503,6 +508,7 @@ class Envelope(MOPolicy, MOAgent):
             reset_learning_starts: whether to reset the learning starts. Useful when training multiple times.
             verbose: whether to print the episode info.
         """
+        print(f"training from {__file__}")
         if eval_env is not None:
             assert ref_point is not None, "Reference point must be provided for the hypervolume computation."
         if self.log:
