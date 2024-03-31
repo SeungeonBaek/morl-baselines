@@ -24,7 +24,7 @@ def main():
         # batch_size=64,
         # net_arch=[256, 256, 256, 256],
         # buffer_size=int(2e6),
-        batch_size=8,
+        batch_size=4,
         net_arch=[32, 32, 32, 32],
         buffer_size=int(2e6),
         initial_epsilon=1.0,
@@ -44,7 +44,7 @@ def main():
         experiment_name="Envelope",
     )
 
-    print(f"Training {agent.__class__.__name__}")
+    print(f"1: Training {agent.__class__.__name__}")
     agent.train(
         total_timesteps=100000,
         total_episodes=None,

@@ -314,10 +314,12 @@ class Envelope(MOPolicy, MOAgent):
             )
             q_value = q_value.reshape(-1, self.reward_dim)
             
-            print(f"q_value: {q_value.shape}\n{q_value}")
-            print(f"target_q: {target_q.shape}\n{target_q}")
+            ## q_value: (batch_size * num_sample_w, reward_dim)
+            ## target_q: (batch_size * num_sample_w, reward_dim)
 
             critic_loss = F.mse_loss(q_value, target_q)
+            
+            print(f"critic_loss: {critic_loss.shape}")
 
             if self.homotopy_lambda > 0:
                 wQ = th.einsum("br,br->b", q_value, w)
