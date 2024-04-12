@@ -83,6 +83,10 @@ seaborn = "^0.13.2"
 cvxpy = "^1.4.2"
 fire = "^0.6.0"
 morl-baselines = {git = "https://github.com/LucasAlegre/morl-baselines.git"}
+gym-super-mario-bros = "^7.4.0"
+pep517 = "^0.13.1"
+p5py = "^1.0.0"
+pycddlib = "^2.1.7"
 
 [tool.setuptools]
 include-package-data = true

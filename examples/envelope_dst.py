@@ -7,8 +7,8 @@ from morl_baselines.multi_policy.envelope.envelope import Envelope
 
 def main():
     def make_env():
-        env = mo_gym.make("minecart-v0")
-        env = MORecordEpisodeStatistics(env, gamma=0.98)
+        env = mo_gym.make("deep-sea-treasure-v0")
+        env = MORecordEpisodeStatistics(env, gamma=0.99)
         # env = mo_gym.LinearReward(env)
         return env
 
@@ -20,7 +20,7 @@ def main():
         env,
         max_grad_norm=0.1,
         learning_rate=3e-4,
-        gamma=0.98,
+        gamma=0.99,
         batch_size=64,
         net_arch=[256, 256, 256, 256],
         buffer_size=int(2e6),
@@ -41,12 +41,12 @@ def main():
     )
 
     agent.train(
-        total_timesteps=int(1e6),
+        total_timesteps=1000000,
         total_episodes=None,
         weight=None,
         eval_env=eval_env,
-        ref_point=np.array([0, 0, -200.0]),
-        known_pareto_front=env.unwrapped.pareto_front(gamma=0.98),
+        ref_point=np.array([0, -50.0]),
+        known_pareto_front=env.unwrapped.pareto_front(gamma=0.99),
         num_eval_weights_for_front=100,
         eval_freq=1000,
         reset_num_timesteps=False,
